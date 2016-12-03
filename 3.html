@@ -1,0 +1,343 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>(3) 模版架構 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="4.html" />
+    
+    
+    <link rel="prev" href="2.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    簡介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="1.html">
+            
+                <a href="1.html">
+            
+                    
+                    (1) 前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="2.html">
+            
+                <a href="2.html">
+            
+                    
+                    (2) 概覽與需求簡介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4" data-path="3.html">
+            
+                <a href="3.html">
+            
+                    
+                    (3) 模版架構
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="4.html">
+            
+                <a href="4.html">
+            
+                    
+                    (4) 環境變數、ESLint 與 Babel
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >(3) 模版架構</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x5F9E;&#x982D;&#x5EFA;&#x7ACB;&#x4E00;&#x5957;-web-based-&#x670D;&#x52D9;&#x67B6;&#x69CB;-3-&#x6A21;&#x7248;&#x67B6;&#x69CB;">&#x5F9E;&#x982D;&#x5EFA;&#x7ACB;&#x4E00;&#x5957; web-based &#x670D;&#x52D9;&#x67B6;&#x69CB; (3) &#x6A21;&#x7248;&#x67B6;&#x69CB;</h1>
+<p>&#x5728;&#x958B;&#x767C; React.js &#x5C08;&#x6848;&#x6642;&#xFF0C;&#x4F7F;&#x7528; JSX &#x8A9E;&#x6CD5;&#x64B0;&#x5BEB; React component &#x8F03;&#x70BA;&#x65B9;&#x4FBF;&#xFF0C;&#x56E0;&#x6B64;&#x5C08;&#x6848;&#x521D;&#x59CB;&#x968E;&#x6BB5;&#x5C31;&#x9700;&#x8981;&#x5C07; JSX &#x76F8;&#x5BB9;&#x6027;&#x7D0D;&#x5165;&#x8003;&#x91CF;&#x3002;
+&#x9664;&#x4E86;&#x8DDF;&#x96A8;&#x5B98;&#x7DB2;&#x7684; getting started &#x7BC4;&#x4F8B;&#xFF0C;&#x5C0B;&#x627E;&#x5408;&#x9069;&#x7684;&#x6A21;&#x7248;&#x67B6;&#x69CB;&#xFF08;boilerplate&#xFF09;&#x4E5F;&#x662F;&#x5F88;&#x597D;&#x7684;&#x4F5C;&#x6CD5;&#xFF08;&#x8A3B;1&#xFF09;&#xFF0C;&#x80FD;&#x5920;&#x4EE5;&#x4ED6;&#x4EBA;&#x67B6;&#x597D;&#x7684;&#x57FA;&#x790E;&#x4E0A;&#x5FEB;&#x901F;&#x958B;&#x59CB;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x5B78;&#x7FD2; boilerplate project &#x5167;&#x7684;&#x5C08;&#x6848;&#x512A;&#x9EDE;&#x3002;</p>
+<p>React.js boilerplate &#x9078;&#x64C7;&#x773E;&#x591A;&#xFF0C;&#x4E00;&#x822C;&#x6703;&#x4F9D;&#x7167;&#x81EA;&#x5DF1;&#x60F3;&#x8981;&#x7684;&#x529F;&#x80FD;&#x9700;&#x6C42;&#xFF08;Server-side rendering&#x3001;Redux&#x3001;Flux&#x3001;<a href="https://github.com/ReactTraining/react-router" target="_blank">React-Router</a>&#xFF09;&#x548C;&#x53EF;&#x8B80;&#x6027;&#x6216;&#x81EA;&#x5DF1;&#x7684;&#x559C;&#x597D;&#x4F86;&#x9078;&#x64C7;&#x3002;
+&#x4EE5;&#x4F5C;&#x8005;&#x500B;&#x4EBA;&#x559C;&#x597D;&#x800C;&#x8A00;&#xFF0C;&#x6703;&#x4EE5;&#x4E0B;&#x5217;&#x529F;&#x80FD;&#x9700;&#x6C42;&#x505A;&#x8003;&#x91CF;&#xFF1A;</p>
+<ul>
+<li>&#x8A9E;&#x6CD5;&#xFF1A;&#x4F7F;&#x7528; ES6 / ES-next / JSX &#x9032;&#x884C;&#x64B0;&#x5BEB;&#xFF0C;&#x4E26;&#x642D;&#x914D; Babel/<a href="https://github.com/google/traceur-compiler" target="_blank">Traceur</a> &#x505A; ES5 transpiling</li>
+<li>&#x5305;&#x542B; task runner&#xFF0C;&#x4F8B;&#x5982; <a href="http://gruntjs.com" target="_blank">Grunt</a>&#x3001;<a href="http://gulpjs.com" target="_blank">Gulp</a> &#x6216; npm scripts</li>
+<li>&#x4EE5; Webpack &#x505A; JS/CSS bundling</li>
+<li>&#x642D;&#x914D; React.js &#x4F7F;&#x7528;&#x7684; dataflow library&#xFF0C;&#x5982; <a href="https://github.com/reactjs/redux/" target="_blank">Redux</a>&#x3001;<a href="https://github.com/mobxjs/mobx" target="_blank">MobX</a> &#x7B49;</li>
+<li>Testing &#x76F8;&#x95DC;&#x7684;&#x8A2D;&#x5B9A;&#xFF08;&#x96D6;&#x7136;&#x4F5C;&#x8005;&#x5176;&#x5BE6;&#x672C;&#x6B21;&#x5C08;&#x6848;&#x4E0D;&#x6253;&#x7B97;&#x64B0;&#x5BEB; testing...&#xFF09;</li>
+<li>Linting&#xFF0C;&#x4E00;&#x822C;&#x800C;&#x8A00;&#x6703;&#x4F7F;&#x7528; <a href="https://github.com/eslint/eslint" target="_blank">ESLint</a> &#x4E26;&#x6574;&#x5408;&#x9032; task runner</li>
+</ul>
+<p>&#x56DE;&#x5230;&#x672C;&#x6B21;&#x7684;&#x5C08;&#x6848;&#x67B6;&#x69CB;&#xFF0C;&#x6BD4;&#x8D77;&#x76F4;&#x63A5;&#x9078;&#x64C7;&#x73FE;&#x6709;&#x7684; boilerplate&#xFF0C;&#x6211;&#x5011;&#x4EE5;&#x4E0A;&#x8FF0;&#x7684;&#x8003;&#x91CF;&#x9EDE;&#x4F86;&#x9032;&#x884C;&#x5C08;&#x6848;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x4E26;&#x4EE5;&#x6700;&#x4F4E;&#x9650;&#x5EA6;&#x7684;&#x9700;&#x6C42;&#x4F86;&#x505A;&#x7D44;&#x5408;&#xFF0C;&#x4E4B;&#x5F8C;&#x958B;&#x767C;&#x904E;&#x7A0B;&#x78B0;&#x5230;&#x9700;&#x8981;&#x7684;&#x529F;&#x80FD;&#x518D;&#x52A0;&#x9032;&#x53BB;&#x3002;
+&#x4EE5;&#x4E0B;&#x662F;&#x521D;&#x59CB;&#x5316;&#x5F8C;&#x7684;<a href="https://github.com/teaualune/online-course/tree/2e3685fc2f19b68a30bcf4aaba6be6c9f09e6b1a/frontend" target="_blank">&#x5C08;&#x6848;&#x7D50;&#x69CB;</a>&#xFF1A;</p>
+<pre><code>gulp
+src
+  |- client
+  |- server
+webpack
+.babelrc
+.eslintrc
+gulpfile.babel.js
+package.json
+</code></pre><h3 id="gulp-&#x7684;&#x4F7F;&#x7528;">Gulp &#x7684;&#x4F7F;&#x7528;</h3>
+<p>&#x70BA;&#x4F55;&#x9078;&#x64C7; Gulp &#x4F5C;&#x70BA; task runner&#xFF1F;
+&#x4EE5;&#x4F5C;&#x8005;&#x672C;&#x8EAB;&#x66FE;&#x7D93;&#x4F7F;&#x7528; Grunt &#x548C; Gulp &#x7684;&#x7D93;&#x9A57;&#x800C;&#x8A00;&#xFF0C;Grunt &#x7684;&#x904B;&#x4F5C;&#x908F;&#x8F2F;&#x504F;&#x5411;&#x4EE5;&#x300C;&#x529F;&#x80FD;&#x5B8C;&#x6574;&#x7684; plugin&#x300D;&#x642D;&#x914D;&#x300C;gruntfile &#x63D0;&#x4F9B;&#x7684; config&#x300D;&#x904B;&#x4F5C;&#xFF0C;&#x4F7F;&#x7528;&#x4E0A;&#x6BD4; Gulp &#x5BB9;&#x6613;&#x4E0A;&#x624B;&#x4E00;&#x4E9B;&#xFF1B;&#x7136;&#x800C;&#x9019;&#x6A23;&#x540C;&#x6642;&#x610F;&#x5473;&#x8457;&#x5C08;&#x6848;&#x7684;&#x5957;&#x4EF6;&#x76F8;&#x4F9D;&#x6027;&#x5BB9;&#x6613;&#x53D7;&#x4E0D;&#x540C;&#x7684; plugin &#x5F71;&#x97FF;&#x3002;</p>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x82E5;&#x4F7F;&#x7528; <a href="https://github.com/webpack/grunt-webpack" target="_blank">grunt-webpack</a> &#x9032;&#x884C; Webpack &#x6574;&#x5408;&#xFF0C;&#x5C08;&#x6848;&#x6240;&#x4F7F;&#x7528;&#x7684; 
+Webpack &#x7248;&#x672C;&#x5C31;&#x6703;&#x53D7;&#x9650;&#x65BC; grunt-webpack plugin &#x6240;&#x4F7F;&#x7528;&#x7684;&#x7248;&#x672C;&#xFF08;&#x5B9A;&#x7FA9;&#x65BC; plugin &#x81EA;&#x5DF1;&#x7684; <code>package.json</code>&#xFF09;&#xFF1B;&#x56E0;&#x6B64;&#xFF0C;&#x7576;&#x5C08;&#x6848;&#x672C;&#x8EAB;&#x9700;&#x8981;&#x5347;&#x7D1A; Webpack &#x7684;&#x8A71;&#xFF0C;&#x4FBF;&#x5BB9;&#x6613;&#x7522;&#x751F; dependency &#x885D;&#x7A81;&#x7684;&#x72C0;&#x6CC1;&#x3002;
+Gulp &#x76F8;&#x8F03;&#x4E4B;&#x4E0B;&#x66F4;&#x70BA;&#x8F15;&#x91CF;&#xFF0C;&#x96D6;&#x7136;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x984D;&#x5916;&#x505A;&#x8F03;&#x591A;&#x8A2D;&#x5B9A;&#xFF0C;&#x4F46;&#x4E5F;&#x5E36;&#x4F86;&#x6BD4;&#x8F03;&#x9AD8;&#x7684;&#x5F48;&#x6027;&#x3002;</p>
+<p>&#x5728; <code>gulp</code> &#x8CC7;&#x6599;&#x593E;&#x5167;&#x5BA3;&#x544A;&#x4E86;&#x5E7E;&#x500B;&#x529F;&#x80FD;&#x4E0D;&#x540C;&#x7684; Gulp task&#xFF1A;</p>
+<ul>
+<li><code>build</code>: <code>clean</code> + <code>webpack</code>&#xFF0C;&#x5148;&#x6E05;&#x7A7A;&#x4E0A;&#x6B21;&#x7684; build &#x7D50;&#x679C;&#x5F8C;&#x518D;&#x884C; build</li>
+<li><code>clean</code>: &#x6E05;&#x7A7A;&#x4E0A;&#x6B21;&#x7684; build &#x7D50;&#x679C;</li>
+<li><code>env</code>: &#x5F37;&#x5236;&#x8B93; <code>NODE_ENV</code> &#x74B0;&#x5883;&#x8B8A;&#x6578;&#x6307;&#x5B9A;&#x70BA; <code>local</code>&#xFF08;&#x958B;&#x767C;&#x968E;&#x6BB5;&#xFF09;&#x6216; <code>production</code></li>
+<li><code>lint</code>: &#x57F7;&#x884C; Linting &#x7A0B;&#x5E8F;</li>
+<li><code>server-hot</code>: &#x904B;&#x884C; Webpack dev server &#x65BC;&#x958B;&#x767C;&#x968E;&#x6BB5;&#x4F7F;&#x7528; hot module replacement (HMR) &#x529F;&#x80FD;</li>
+<li><code>server-node</code>: &#x904B;&#x884C; server &#x7A0B;&#x5F0F;</li>
+<li><code>server-nodedev</code>: &#x7528; <a href="https://github.com/fgnass/node-dev" target="_blank">node-dev</a> &#x904B;&#x884C; server &#x7A0B;&#x5F0F;</li>
+<li><code>server</code>: &#x540C;&#x6642;&#x5145;&#x7576; <code>default</code> task&#xFF0C;&#x4F9D; <code>NODE_ENV</code> &#x5DEE;&#x7570;&#x800C;&#x6709;&#x5169;&#x7A2E;&#x7248;&#x672C;&#xFF1A;<ul>
+<li>&#x958B;&#x767C;&#x968E;&#x6BB5;&#xFF1A;<code>lint</code> + <code>watch</code> + <code>server-hot</code> &#x548C; <code>server-node</code>&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x6703;&#x6709;&#x5169;&#x500B; server &#x540C;&#x6642;&#x904B;&#x884C;</li>
+<li>production &#x968E;&#x6BB5;&#xFF1A;<code>build</code> + <code>server-node</code></li>
+</ul>
+</li>
+<li><code>watch</code>: &#x7576; <code>src/client</code> &#x7684; JS &#x7A0B;&#x5F0F;&#x78BC;&#x8B8A;&#x52D5;&#x6642;&#x91CD;&#x65B0;&#x9032;&#x884C; Linting&#x3002;&#xFF08;&#x91CD;&#x65B0; compile &#x9019;&#x500B;&#x5DE5;&#x4F5C;&#x7531; HMR &#x6A5F;&#x5236;&#x8CA0;&#x8CAC;&#xFF09;</li>
+<li><code>webpack</code>: Build &#x524D;&#x7AEF;&#x7684; JS/CSS &#x7A0B;&#x5F0F;&#x78BC;&#xFF0C;&#x4E26; bundle &#x6210;&#x5169;&#x96BB;&#x6A94;&#x6848;</li>
+</ul>
+<p>&#x95DC;&#x65BC; Webpack &#x548C; ESLint &#x7B49;&#x8A2D;&#x5B9A;&#x7684;&#x7D30;&#x7BC0;&#x5C07;&#x65BC;&#x5F8C;&#x7E8C;&#x6587;&#x7AE0;&#x8AAA;&#x660E;&#x3002;</p>
+<p>&#x57F7;&#x884C;&#x65B9;&#x5F0F;&#x5C31;&#x662F;&#x76F4;&#x63A5;&#x547C;&#x53EB; <code>gulp</code>&#x3001;<code>gulp build</code> &#x6216; <code>gulp lint</code> &#x7B49;&#x5373;&#x53EF;&#xFF1B;&#x6216;&#x662F;&#x518D;&#x66F4;&#x9032;&#x4E00;&#x6B65;&#xFF0C;&#x65BC; <code>package.json</code> &#x7684; npm scripts &#x5BA3;&#x544A;&#x5982;&#x4F55;&#x57F7;&#x884C;&#x9019;&#x4E9B; Gulp task&#xFF1A;</p>
+<pre><code>&quot;scripts&quot;: {
+    &quot;local&quot;: &quot;gulp&quot;,
+    &quot;production&quot;: &quot;NODE_ENV=production gulp&quot;
+},
+</code></pre><p>&#x7136;&#x5F8C;&#x4F7F;&#x7528; <code>npm run local</code> &#x6216; <code>npm run production</code> &#x57F7;&#x884C;&#x3002;</p>
+<p>&#x9644;&#x5E36;&#x4E00;&#x63D0;&#xFF0C;&#x5305;&#x542B; <code>gulpfile.babel.js</code> &#x5728;&#x5167;&#xFF0C;&#x6B64;&#x5C08;&#x6848;&#x6240;&#x64B0;&#x5BEB;&#x7684; Gulp tasks &#x4F7F;&#x7528;&#x4E86; ES6 &#x8A9E;&#x6CD5;&#xFF0C;&#x82E5;&#x662F;&#x6C92;&#x6709;&#x5728; <code>node_modules</code> &#x5B89;&#x88DD; <code>babel-register</code> &#x7B49; Babel &#x5957;&#x4EF6;&#x7684;&#x8A71;&#x6703;&#x9020;&#x6210;&#x57F7;&#x884C;&#x5931;&#x6557;&#x3002;
+&#x9019;&#x662F;&#x56E0;&#x70BA; gulpfile &#x7684;&#x540D;&#x7A31;&#x5E36;&#x6709; <code>.babel</code> &#x5F8C;&#x7DB4;&#xFF0C;Gulp &#x6703;&#x5728; runtime &#x6703;&#x627E;&#x5C0B;&#x5C08;&#x6848;&#x5167;&#x7684; <code>.babelrc</code> &#x6A94;&#x6848;&#x4E26;&#x8A66;&#x8457;&#x4EE5; <code>babel-register</code> &#x9032;&#x884C; transpiling &#x518D;&#x57F7;&#x884C;&#x7684;&#x7DE3;&#x6545;&#x3002;</p>
+<hr>
+<p>&#x8A3B;1&#xFF1A;<a href="http://andrewhfarmer.com/starter-project/" target="_blank">Find your Perfect React starter project</a> &#x548C; <a href="https://github.com/enaqx/awesome-react" target="_blank">Awesome React</a> &#x90FD;&#x503C;&#x5F97;&#x4E00;&#x770B;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="2.html" class="navigation navigation-prev " aria-label="Previous page: (2) 概覽與需求簡介">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="4.html" class="navigation navigation-next " aria-label="Next page: (4) 環境變數、ESLint 與 Babel">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"(3) 模版架構","level":"1.4","depth":1,"next":{"title":"(4) 環境變數、ESLint 與 Babel","level":"1.5","depth":1,"path":"4.md","ref":"4.md","articles":[]},"previous":{"title":"(2) 概覽與需求簡介","level":"1.3","depth":1,"path":"2.md","ref":"2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"3.md","mtime":"2016-12-03T10:12:39.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-03T16:15:46.050Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

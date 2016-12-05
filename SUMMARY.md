@@ -7,3 +7,4 @@
 * [(3) 模版架構](3.md)
 * [(4) 環境變數、ESLint 與 Babel](4.md)
 * [(5) Tuning Webpack](5.md)
+* [(6) Webpack HMR](6.md)

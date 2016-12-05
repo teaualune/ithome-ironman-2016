@@ -1,0 +1,387 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>(6) Webpack HMR · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="5.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    簡介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="1.html">
+            
+                <a href="1.html">
+            
+                    
+                    (1) 前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="2.html">
+            
+                <a href="2.html">
+            
+                    
+                    (2) 概覽與需求簡介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="3.html">
+            
+                <a href="3.html">
+            
+                    
+                    (3) 模版架構
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="4.html">
+            
+                <a href="4.html">
+            
+                    
+                    (4) 環境變數、ESLint 與 Babel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="5.html">
+            
+                <a href="5.html">
+            
+                    
+                    (5) Tuning Webpack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7" data-path="6.html">
+            
+                <a href="6.html">
+            
+                    
+                    (6) Webpack HMR
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >(6) Webpack HMR</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x5F9E;&#x982D;&#x5EFA;&#x7ACB;&#x4E00;&#x5957;-web-based-&#x670D;&#x52D9;&#x67B6;&#x69CB;-6-webpack-hmr">&#x5F9E;&#x982D;&#x5EFA;&#x7ACB;&#x4E00;&#x5957; web-based &#x670D;&#x52D9;&#x67B6;&#x69CB; (6) Webpack HMR</h1>
+<p>Webpack &#x5167;&#x5EFA;&#x540D;&#x70BA; Hot Module Replacement (HMR) &#x7684;&#x6A5F;&#x5236;&#xFF0C;&#x548C; <a href="http://livereload.com" target="_blank">LiveReload</a> &#x7B49;&#x5DE5;&#x5177;&#x985E;&#x4F3C;&#xFF0C;&#x80FD;&#x5920;&#x5728;&#x958B;&#x767C;&#x6642;&#x52D5;&#x614B;&#x91CD;&#x65B0;&#x8F09;&#x5165;&#x66F4;&#x6539;&#x7684;&#x7A0B;&#x5F0F;&#x78BC;&#x3002;
+&#x548C; LiveReload &#x4E0D;&#x540C;&#x7684;&#x662F;&#xFF0C;Webpack &#x4EE5; <em>module &#x70BA;&#x55AE;&#x4F4D;</em>&#x9032;&#x884C;&#x91CD;&#x8F09;&#xFF0C;&#x80FD;&#x5920;&#x5728;&#x4E0D;&#x91CD;&#x65B0;&#x6574;&#x7406;&#x9801;&#x9762;&#x7684;&#x60C5;&#x6CC1;&#x4E0B;&#x57F7;&#x884C;&#x65B0;&#x7684; module &#x4E26;&#x8986;&#x84CB;&#x820A;&#x7684;&#x7D50;&#x679C;&#x3002;
+&#x5C0D; React.js &#x7684;&#x958B;&#x767C;&#x800C;&#x8A00;&#xFF0C;HMR &#x80FD;&#x5920;&#x81EA;&#x52D5;&#x91CD;&#x8F09; component &#x5167;&#x5BB9;&#x4EE5;&#x5927;&#x5E45;&#x589E;&#x52A0;&#x958B;&#x767C;&#x901F;&#x5EA6;&#x3002;</p>
+<h3 id="&#x555F;&#x7528;-hmr-&#x6A5F;&#x5236;">&#x555F;&#x7528; HMR &#x6A5F;&#x5236;</h3>
+<p>&#x52D5;&#x614B;&#x91CD;&#x8F09;&#x7684;&#x539F;&#x7406;&#x662F;&#x53E6;&#x555F;&#x4E00;&#x500B; server &#x53BB;&#x76E3;&#x807D;&#x672C;&#x5730;&#x7AEF;&#x7684;&#x6A94;&#x6848;&#x7CFB;&#x7D71;&#x8B8A;&#x5316;&#xFF0C;&#x4E26;&#x5373;&#x6642;&#x901A;&#x77E5;&#x524D;&#x7AEF;&#x9801;&#x9762;&#x4F86;&#x5BE6;&#x884C;&#x8B8A;&#x52D5;&#x3002;
+&#x6B64;&#x5C08;&#x6848;&#x4F7F;&#x7528; <code>webpack-dev-middleware</code> &#x548C; <code>webpack-hot-middleware</code> &#x4F86;&#x6253;&#x9020;&#x9019;&#x53F0; server&#xFF0C;&#x4E26;&#x7531; <code>gulp server-hot</code> &#x9019;&#x500B; Gulp task &#x555F;&#x7528;&#x3002;
+<code>gulp server-hot</code> &#x6703;&#x555F;&#x52D5;&#x4E00;&#x53F0; Express.js server&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> express <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;express&apos;</span>;
+<span class="hljs-keyword">import</span> webpack <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;webpack&apos;</span>;
+<span class="hljs-keyword">import</span> webpackDev <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;webpack-dev-middleware&apos;</span>;
+<span class="hljs-keyword">import</span> webpackHot <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;webpack-hot-middleware&apos;</span>;
+<span class="hljs-keyword">import</span> makeWebpackConfig <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../config.webpack&apos;</span>;
+
+<span class="hljs-keyword">const</span> app = express();
+
+<span class="hljs-keyword">const</span> webpackConfig = makeWebpackConfig(process.env);
+<span class="hljs-keyword">const</span> compiler = webpack(webpackConfig);
+
+app.use(webpackDev(compiler, {
+    headers: { <span class="hljs-string">&apos;Access-Control-Allow-Origin&apos;</span>: <span class="hljs-string">&apos;*&apos;</span> },
+    noInfo: <span class="hljs-literal">true</span>,
+    publicPath: webpackConfig.output.publicPath
+}));
+
+app.use(webpackHot(compiler));
+
+app.listen(<span class="hljs-number">8080</span>);
+</code></pre>
+<p>&#x4EE5;&#x4E0A;&#x7684;&#x5169;&#x500B; Express middleware &#x5230;&#x5E95;&#x5BE6;&#x969B;&#x4E0A;&#x505A;&#x4E86;&#x4EC0;&#x9EBC;&#x4E8B;&#x60C5;&#xFF1F;
+&#x9996;&#x5148;&#xFF0C;<code>webpack-dev-middleware</code> &#x5C07; Webpack &#x7684; compile &#x7D50;&#x679C; host &#x5728; server &#x4E2D;&#xFF0C;&#x800C;&#x975E;&#x5BEB;&#x5165; <code>output</code> &#x6240;&#x6307;&#x5B9A;&#x7684;&#x6A94;&#x6848;&#x8DEF;&#x5F91;&#x3002;
+&#x7531;&#x65BC; bundling &#x7684;&#x7D50;&#x679C;&#x5B58;&#x653E;&#x5728;&#x8A18;&#x61B6;&#x9AD4;&#xFF0C;dev middleware &#x5728;&#x57F7;&#x884C; compile &#x7684;&#x901F;&#x5EA6;&#x6BD4;&#x8D77;&#x76F4;&#x63A5; build Webpack &#x5FEB;&#x4E0A;&#x4E0D;&#x5C11;&#x3002;</p>
+<p><code>webpack-hot-middleware</code> &#x6703;&#x5C07; dev middleware &#x7684;&#x7522;&#x51FA;&#x63D0;&#x4F9B;&#x7D66;&#x524D;&#x7AEF;&#x5B58;&#x53D6;&#x3002;
+&#x5177;&#x9AD4;&#x7684;&#x4F5C;&#x6CD5;&#x662F;&#x5728; Webpack &#x7684;&#x8A2D;&#x5B9A;&#x4E2D;&#xFF0C;&#x52A0;&#x5165; <code>webpack.optimize.OccurrenceOrderPlugin</code>&#x3001;<code>webpack.HotModuleReplacementPlugin</code> &#x548C; <code>webpack.NoErrorsPlugin</code> &#x4E09;&#x500B; plugin&#xFF0C;&#x4EE5;&#x53CA;&#x5728; <code>entry</code> &#x7684; hot server endpoint&#xFF1A;</p>
+<pre><code class="lang-javascript">entry: {
+    app: [
+        <span class="hljs-string">`webpack-hot-middleware/client?path=http://<span class="hljs-subst">${ip.address()}</span>:8080/__webpack_hmr`</span>,
+        <span class="hljs-string">&apos;./src/client/main.js&apos;</span>
+    ]
+},
+</code></pre>
+<p>&#x4EE5;&#x53CA;&#x5728; render HTML &#x5167;&#x5BB9;&#x6642;&#xFF0C;&#x5C07; JS bundle URL &#x6307;&#x5B9A;&#x5230; hot server &#x63D0;&#x4F9B;&#x7684; endpoint&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> scriptSrc = isProduction ? <span class="hljs-string">&apos;/dist/app.js&apos;</span> : <span class="hljs-string">`//<span class="hljs-subst">${ip.address()}</span>:8080/dist/app.js`</span>;
+</code></pre>
+<h3 id="&#x52A0;&#x5165;-hmr-&#x7A0B;&#x5F0F;&#x78BC;">&#x52A0;&#x5165; HMR &#x7A0B;&#x5F0F;&#x78BC;</h3>
+<p>&#x53EA;&#x9760; hot server &#x4E26;&#x6C92;&#x6709;&#x771F;&#x6B63;&#x9054;&#x5230;&#x52D5;&#x614B;&#x91CD;&#x65B0;&#x8F09;&#x5165;&#x7684;&#x6548;&#x679C;&#xFF1B;&#x5BE6;&#x969B;&#x4E0A;&#xFF0C;HMR &#x6A5F;&#x5236;&#x9084;&#x9700;&#x8981;&#x4EF0;&#x8CF4;&#x7A0B;&#x5F0F;&#x78BC;&#x672C;&#x8EAB;&#x7684;&#x8A2D;&#x5B9A;&#x624D;&#x80FD;&#x904B;&#x4F5C;&#x3002;
+&#x9053;&#x7406;&#x5F88;&#x7C21;&#x55AE;&#xFF0C;&#x56E0;&#x70BA; HMR &#x4E0D;&#x6703;&#x9810;&#x5148;&#x5047;&#x8A2D;&#x958B;&#x767C;&#x8005;&#x64B0;&#x5BEB;&#x7684;&#x7A0B;&#x5F0F;&#x78BC;&#x8A72;&#x5982;&#x4F55;&#x53BB;&#x8655;&#x7406; module &#x91CD;&#x8F09;&#x7684;&#x884C;&#x70BA;&#xFF0C;&#x9019;&#x5FC5;&#x9808;&#x7531;&#x958B;&#x767C;&#x8005;&#x81EA;&#x884C;&#x8A2D;&#x5B9A;&#x3002;</p>
+<p>&#x5728; Webpack &#x8F09;&#x5165; JS code &#x6642;&#xFF0C;&#x6703;&#x5C0D;&#x7A0B;&#x5F0F;&#x78BC;&#x5167;&#x7528;&#x5230;&#x7684; <code>require</code> &#x548C; <code>module</code> &#x8B8A;&#x6578;&#x505A;&#x975C;&#x614B;&#x8F49;&#x63DB;&#xFF0C;&#x5EFA;&#x7ACB; dependency graph&#xFF08;Webpack &#x7684;&#x8853;&#x8A9E;&#x7A31;&#x70BA; module tree&#xFF09;&#xFF08;&#x8A3B;1&#xFF09;&#xFF1B;&#x800C;&#x958B;&#x767C;&#x8005;&#x9700;&#x8981;&#x4F7F;&#x7528; Wepback &#x63D0;&#x4F9B;&#x7D66; <code>module</code> &#x7684; HMR API &#x4F86;&#x52D5;&#x614B;&#x63A5;&#x53D7;&#x65B0;&#x7684; module&#x3002;
+HMR &#x6A5F;&#x5236;&#x53EF;&#x4EE5;&#x85C9;&#x7531; <code>module.hot.accept</code> &#x8A2D;&#x5B9A;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">if</span> (<span class="hljs-built_in">module</span>.hot &amp;&amp; <span class="hljs-keyword">typeof</span> <span class="hljs-built_in">module</span>.hot.accept === <span class="hljs-string">&apos;function&apos;</span>) {
+    <span class="hljs-built_in">module</span>.hot.accept(<span class="hljs-string">&apos;./root.view&apos;</span>, renderRoot);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">renderRoot</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">const</span> Root = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;./root.view&apos;</span>).default;
+    ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Root</span> /&gt;</span>, document.getElementById(&apos;app&apos;));
+}
+</span></code></pre>
+<p>&#x4EE5;&#x9019;&#x6BB5;&#x7A0B;&#x5F0F;&#x70BA;&#x4F8B;&#xFF0C;&#x7576; <code>root.view.js</code> &#x5167;&#x5BB9;&#x66F4;&#x52D5;&#x6642;&#xFF0C;<code>module.hot.accept</code> &#x6703;&#x63A5;&#x6536;&#x6B64;&#x4E8B;&#x4EF6;&#x4E26;&#x547C;&#x53EB;&#x958B;&#x767C;&#x8005;&#x8A2D;&#x5B9A;&#x7684; <code>renderRoot</code> callback&#x3002;
+<code>renderRoot</code> &#x7684;&#x5167;&#x5BB9;&#x5C31;&#x662F;&#x55AE;&#x7D14;&#x91CD;&#x65B0; require &#x65B0;&#x7248;&#x7684; <code>Root</code> component &#x4E26;&#x91CD;&#x65B0;&#x57F7;&#x884C; <code>ReactDOM.render</code>&#x3002;
+&#x800C; HMR &#x771F;&#x6B63;&#x7684;&#x5F37;&#x5927;&#x4E4B;&#x8655;&#xFF0C;&#x5728;&#x65BC;&#x5B83;&#x6703;&#x76E3;&#x807D; dependency graph &#x5167;&#x7684;&#x4EFB;&#x4F55; module &#x8B8A;&#x52D5;&#xFF0C;&#x4E26;<strong>&#x5C07;&#x6B64;&#x8B8A;&#x52D5;&#x4E8B;&#x4EF6;&#x6CBF;&#x8457; dependency graph &#x7684; root &#x65B9;&#x5411; bubble &#x51FA;&#x53BB;&#xFF0C;&#x76F4;&#x5230;&#x88AB; <code>module.hot.accept</code> &#x6514;&#x622A;&#x70BA;&#x6B62;</strong>&#x3002;
+&#x56E0;&#x6B64;&#xFF0C;&#x6211;&#x5011;&#x4E0D;&#x9700;&#x8981;&#x5728;&#x6BCF;&#x500B; module &#x90FD;&#x52A0;&#x4E0A; HMR &#x76F8;&#x95DC;&#x7684;&#x7A0B;&#x5F0F;&#x78BC;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x5728;&#x63A5;&#x8FD1;&#x6839;&#x90E8;&#x7684;&#x4F4D;&#x7F6E;&#xFF08;&#x4EE5;&#x6B64;&#x4F8B;&#x800C;&#x8A00;&#xFF0C;<code>root.view.js</code>&#xFF09;&#x8A2D;&#x5B9A;&#x597D; HMR &#x5373;&#x53EF;&#x4E00;&#x6B21;&#x76E3;&#x807D;&#x6240;&#x6709; child nodes &#x7684;&#x8B8A;&#x52D5;&#x4E8B;&#x4EF6;&#x3002;</p>
+<h3 id="&#x771F;&#x7684;&#x80FD;&#x5920;&#x52D5;&#x614B;&#x91CD;&#x8F09;&#x4EFB;&#x4F55;-module-&#x55CE;&#xFF1F;">&#x771F;&#x7684;&#x80FD;&#x5920;&#x52D5;&#x614B;&#x91CD;&#x8F09;&#x4EFB;&#x4F55; module &#x55CE;&#xFF1F;</h3>
+<p>&#x82E5;&#x662F; HMR &#x8A2D;&#x5B9A;&#x6210;&#x529F;&#xFF0C;Webpack &#x6703;&#x5728; browser console &#x8F38;&#x51FA;&#x76F8;&#x95DC;&#x7684; debug &#x8A0A;&#x606F;&#xFF0C;&#x4F8B;&#x5982;&#x548C; hot server &#x9023;&#x7DDA;&#x6210;&#x529F;&#x7684; <code>[HMR] connected</code>&#x3001;module &#x91CD;&#x65B0;&#x8F09;&#x5165;&#x5B8C;&#x6210;&#x7684; <code>[HMR] bundle rebuilt in OOOms</code> &#x7B49;&#x3002;
+&#x7576;&#x767C;&#x751F; HMR &#x4E8B;&#x4EF6;&#x6642;&#xFF0C;Webpack &#x4E5F;&#x6703;&#x5C07;&#x8B8A;&#x52D5;&#x7684; module &#x4F9D;&#x7167; dependency graph &#x4E00;&#x8DEF;&#x5370;&#x51FA;&#x5230; root &#x7684;&#x7D50;&#x679C;&#xFF1A;</p>
+<p><img src="images/5-console_module_tree.png" alt="Module Tree in Console"></p>
+<p>&#x53CD;&#x904E;&#x4F86;&#xFF0C;&#x82E5;&#x662F; Webpack &#x5075;&#x6E2C;&#x5230;&#x7121;&#x6CD5;&#x88AB; hot replace &#x7684; module &#x8B8A;&#x52D5;&#xFF0C;&#x4E5F;&#x6703;&#x4EE5; <code>console.warn</code> &#x7684;&#x5F62;&#x5F0F;&#x8F38;&#x51FA;&#x5230; browser console&#xFF1A;</p>
+<p><img src="images/5-hmr_failed.png" alt="HMR failed"></p>
+<p>&#x9019;&#x500B;&#x8B66;&#x544A;&#x8A0A;&#x606F;&#x4EE3;&#x8868;&#x6B64; module &#x7684;&#x8B8A;&#x52D5;&#x4E8B;&#x4EF6;&#x5728; bubbling &#x904E;&#x7A0B;&#x6C92;&#x6709;&#x88AB;&#x4EFB;&#x4F55; <code>module.hot.accept</code> &#x6514;&#x622A;&#x5230;&#x3002;
+&#x53E6;&#x5916;&#xFF0C;&#x7531;&#x65BC;&#x4E00;&#x500B; module &#x5F80;&#x5F80;&#x6703;&#x88AB;&#x8907;&#x6578;&#x7684; module &#x6240; require&#xFF0C;&#x7576;&#x6709;&#x4EFB;&#x4F55;&#x4E00;&#x689D;&#x5F80; root &#x7684; bubbling &#x7684;&#x8DEF;&#x7DDA;&#x6C92;&#x80FD;&#x88AB; <code>module.hot.accept</code> &#x6514;&#x622A;&#x6642;&#xFF0C;&#x4ECD;&#x6703;&#x51FA;&#x73FE;&#x9019;&#x500B; hot reload &#x5931;&#x6557;&#x7684;&#x8A0A;&#x606F;&#x3002;
+&#x82E5;&#x662F;&#x60F3;&#x8A2D;&#x5B9A;&#x4E00;&#x500B;&#x6700;&#x4E0A;&#x5C64;&#x7684; <code>module.hot.accept</code> &#x6514;&#x622A;&#x884C;&#x70BA;&#x7684;&#x8A71;&#xFF0C;&#x4EE5;&#x4E0B;&#x6A21;&#x4EFF; LiveReload &#x884C;&#x70BA;&#x7684;&#x6700;&#x7C21;&#x6613;&#x7248;&#x672C;&#x53EF;&#x4EE5;&#x63D0;&#x4F9B;&#x53C3;&#x8003;&#xFF1A;&#x5B83;&#x6703;&#x6514;&#x622A;&#x6240;&#x6709; module &#x7684;&#x8B8A;&#x52D5;&#x4E8B;&#x4EF6;&#xFF0C;&#x7136;&#x5F8C;&#x76F4;&#x63A5;&#x91CD;&#x65B0;&#x6574;&#x7406;&#x9801;&#x9762;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">if</span> (<span class="hljs-built_in">module</span>.hot) {
+    <span class="hljs-built_in">module</span>.hot.accept();
+    <span class="hljs-built_in">module</span>.hot.dispose(() =&gt; {
+        <span class="hljs-built_in">window</span>.location.reload();
+    });
+}
+</code></pre>
+<h3 id="&#x4F7F;&#x7528;-hmr-&#x7684;&#x5E7E;&#x500B;&#x5EFA;&#x8B70;">&#x4F7F;&#x7528; HMR &#x7684;&#x5E7E;&#x500B;&#x5EFA;&#x8B70;</h3>
+<ol>
+<li>&#x5728;&#x7A0B;&#x5F0F;&#x78BC;&#x5167;&#x5118;&#x91CF;&#x8D8A;&#x5C11;&#x51FA;&#x73FE; HMR &#x76F8;&#x95DC;&#x7684;&#x7A0B;&#x5F0F;&#x78BC;&#x8D8A;&#x597D;&#xFF0C;&#x4EE5;&#x5C07;&#x7A0B;&#x5F0F;&#x672C;&#x8EAB;&#x548C; Webpack &#x4E4B;&#x9593;&#x7684;&#x8026;&#x5408;&#x5EA6;&#x9650;&#x5236;&#x5728;&#x6700;&#x5C0F;&#x7BC4;&#x570D;&#xFF08;&#x4F8B;&#x5982;&#x53EA;&#x64B0;&#x5BEB;&#x65BC; Webpack &#x7684; entry file &#x5167;&#xFF09;</li>
+<li>&#x4E0D;&#x7528;&#x64D4;&#x5FC3; HMR &#x9020;&#x6210;&#x7684; build bundle size &#x589E;&#x52A0;&#x554F;&#x984C;&#x6216;&#x662F;&#x8B93; production bundle &#x589E;&#x52A0;&#x7121;&#x8B02;&#x7684;&#x7A0B;&#x5F0F;&#x78BC;&#xFF0C;&#x7531;&#x65BC; <code>module.hot</code> &#x5728;&#x6C92;&#x6709;&#x4F7F;&#x7528; HMR &#x6642;&#x6703;&#x662F;&#x7A7A;&#x503C;&#xFF0C;&#x9019;&#x4E9B; if &#x5340;&#x584A;&#x6703;&#x6574;&#x500B;&#x88AB; UglifyJS &#x62D4;&#x6389;&#xFF08;UglifyJS &#x7684; unreachable code removal &#x529F;&#x80FD;&#xFF09;</li>
+<li>&#x6709;&#x4E9B; loader &#x6703;&#x5077;&#x585E; HMR &#x6A5F;&#x5236;&#x7684;&#x7A0B;&#x5F0F;&#x78BC;&#xFF08;&#x4F8B;&#x5982; <a href="https://github.com/webpack/style-loader" target="_blank"><code>style-loader</code></a>&#xFF09;&#xFF0C;&#x9664;&#x4E86;&#x65B9;&#x4FBF;&#x958B;&#x767C;&#x5916;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x7814;&#x7A76;&#x4E00;&#x4E0B;&#x4E0D;&#x540C;&#x5957;&#x4EF6;&#x5C0D; HMR &#x7684;&#x5BEB;&#x6CD5;&#x3002;</li>
+</ol>
+<hr>
+<p>&#x8A3B;1&#xFF1A;&#x96D6;&#x7136;&#x300C;&#x7531; entry file &#x53BB; require &#x5176;&#x4ED6;&#x6240;&#x6709;&#x7684; module&#x300D;&#x9019;&#x4E00;&#x884C;&#x70BA;&#x7528; <em>tree</em> &#x6703;&#x662F;&#x6BD4;&#x8F03;&#x597D;&#x7684;&#x5F62;&#x5BB9;&#x65B9;&#x5F0F;&#xFF0C;&#x4F46;&#x8003;&#x91CF;&#x5230; module &#x662F;&#x5141;&#x8A31;&#x8907;&#x6578; parent &#xFF08;&#x88AB;&#x4E0D;&#x540C; module &#x6240; require&#xFF09;&#x7684;&#x72C0;&#x6CC1;&#x4E0B;&#xFF0C;&#x4F5C;&#x8005;&#x500B;&#x4EBA;&#x8A8D;&#x70BA;&#x5B83;&#x66F4;&#x50CF;&#x662F;&#x4E00;&#x500B; directed graph&#xFF0C;&#x56E0;&#x6B64;&#x6587;&#x5167;&#x5747;&#x4EE5; <em>dependency graph</em> &#x4E00;&#x8A5E;&#x66FF;&#x4EE3; Webpack &#x5167;&#x90E8;&#x4F7F;&#x7528;&#x7684; module tree &#x4E00;&#x8A5E;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="5.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: (5) Tuning Webpack">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"(6) Webpack HMR","level":"1.7","depth":1,"previous":{"title":"(5) Tuning Webpack","level":"1.6","depth":1,"path":"5.md","ref":"5.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"6.md","mtime":"2016-12-05T16:21:59.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-05T16:27:47.603Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

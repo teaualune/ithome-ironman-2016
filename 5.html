@@ -1,0 +1,394 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>(5) Tuning Webpack · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="6.html" />
+    
+    
+    <link rel="prev" href="4.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    簡介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="1.html">
+            
+                <a href="1.html">
+            
+                    
+                    (1) 前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="2.html">
+            
+                <a href="2.html">
+            
+                    
+                    (2) 概覽與需求簡介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="3.html">
+            
+                <a href="3.html">
+            
+                    
+                    (3) 模版架構
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="4.html">
+            
+                <a href="4.html">
+            
+                    
+                    (4) 環境變數、ESLint 與 Babel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6" data-path="5.html">
+            
+                <a href="5.html">
+            
+                    
+                    (5) Tuning Webpack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="6.html">
+            
+                <a href="6.html">
+            
+                    
+                    (6) Webpack HMR
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >(5) Tuning Webpack</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x5F9E;&#x982D;&#x5EFA;&#x7ACB;&#x4E00;&#x5957;-web-based-&#x670D;&#x52D9;&#x67B6;&#x69CB;-5-tuning-webpack">&#x5F9E;&#x982D;&#x5EFA;&#x7ACB;&#x4E00;&#x5957; web-based &#x670D;&#x52D9;&#x67B6;&#x69CB; (5) Tuning Webpack</h1>
+<p>&#x5EF6;&#x7E8C;&#x524D;&#x5E7E;&#x5929;&#x7684;&#x5167;&#x5BB9;&#xFF0C;&#x4ECA;&#x5929;&#x8981;&#x4ECB;&#x7D39;&#x672C;&#x6B21;&#x5C08;&#x6848;&#x4F7F;&#x7528;&#x7684; Webpack &#x8A2D;&#x5B9A;&#x3002;
+&#x96D6;&#x7136; Webpack &#x64C1;&#x6709;&#x529F;&#x80FD;&#x5F37;&#x5927;&#x3001;&#x64F4;&#x5145;&#x6027;&#x6975;&#x9AD8;&#x7684;&#x512A;&#x9EDE;&#xFF0C;&#x53CD;&#x904E;&#x4F86;&#x4E5F;&#x5E36;&#x4F86;&#x4E0D;&#x5BB9;&#x6613; debug&#x3001;&#x96E3;&#x4EE5;&#x4E0A;&#x624B;&#x7684;&#x7F3A;&#x9EDE;&#x3002;
+&#x4ED6;&#x7684;&#x529F;&#x80FD;&#x5F37;&#x5927;&#x7684;&#x7A0B;&#x5EA6;&#xFF0C;&#x5176;&#x5BE6;&#x8DB3;&#x4EE5;&#x76F4;&#x63A5;&#x53D6;&#x4EE3; Gulp &#x7684;&#x4F7F;&#x7528;&#xFF1B;&#x4F46; Webpack &#x6700;&#x91CD;&#x8981;&#x7684;&#x610F;&#x7FA9;&#xFF0C;&#x4F5C;&#x8005;&#x8A8D;&#x70BA;&#x662F;&#x5728;&#x5B83;&#x5C0D; <strong><code>require</code></strong> &#x8A9E;&#x6CD5;&#x7684;&#x64F4;&#x5145;&#x80FD;&#x529B;&#x3002;</p>
+<h3 id="&#x4F7F;&#x7528;-webpack-&#x7684;&#x76CA;&#x8655;&#x548C;&#x6F5B;&#x5728;&#x554F;&#x984C;">&#x4F7F;&#x7528; Webpack &#x7684;&#x76CA;&#x8655;&#x548C;&#x6F5B;&#x5728;&#x554F;&#x984C;</h3>
+<p>&#x5728; Webpack &#x7684;&#x6982;&#x5FF5;&#x4E2D;&#xFF0C;&#x6240;&#x6709;&#x7684; <code>require()</code> &#x547C;&#x53EB;&#xFF08;&#x6216;&#x662F; <code>import</code> &#x8A9E;&#x6CD5;&#xFF0C;&#x56E0;&#x70BA;&#x90A3;&#x6703;&#x88AB; transpile &#x56DE; <code>require</code> call&#xFF09;&#x90FD;&#x6703;&#x900F;&#x904E; <strong>loader</strong> &#x9032;&#x884C;&#x89E3;&#x6790;&#x8207;&#x8F09;&#x5165;&#x3002;
+&#x4F7F;&#x7528;&#x8005;&#x53EF;&#x4EE5;&#x6839;&#x64DA;&#x4E0D;&#x540C;&#x7684;&#x526F;&#x6A94;&#x540D;&#x8A2D;&#x5B9A;&#x4E0D;&#x540C;&#x7684; loader&#xFF0C;&#x8B93;<em>&#x4EFB;&#x4F55;</em>&#x985E;&#x578B;&#x7684;&#x6A94;&#x6848;&#x90FD;&#x80FD;&#x88AB; <code>require</code> &#x5230; JS &#x5167;&#x3002;
+&#x7D93;&#x904E; loader &#x8F09;&#x5165;&#x7684;&#x8CC7;&#x6E90;&#xFF0C;&#x80FD;&#x4EE5;&#x4E0D;&#x540C;&#x7684;&#x5F62;&#x5F0F;&#x5B58;&#x5728;&#x65BC; JS &#x7A0B;&#x5F0F;&#x78BC;&#x5167;&#xFF0C;&#x4F8B;&#x5982; CSS &#x8B8A;&#x6210; inline <code>&lt;style&gt;</code> tag&#x3001;&#x5716;&#x7247;&#x8B8A;&#x6210; base64 &#x7DE8;&#x78BC;&#x8CC7;&#x6599;&#x7B49;&#x3002;
+&#x9019;&#x6A23;&#x7684;&#x6982;&#x5FF5;&#x80FD;&#x5920;&#x5E36;&#x4F86;&#x5E7E;&#x500B;&#x958B;&#x767C;&#x4E0A;&#x7684;&#x610F;&#x7FA9;&#x6539;&#x8B8A;&#xFF1A;</p>
+<ol>
+<li>&#x6240;&#x6709;&#x524D;&#x7AEF;&#x8CC7;&#x6E90;&#x90FD;&#x7531; Webpack &#x505A;&#x7BA1;&#x7406;&#xFF1A;&#x4E0D;&#x7BA1;&#x662F;&#x81EA;&#x5DF1;&#x5BEB;&#x7684; JS &#x7A0B;&#x5F0F;&#x78BC; / &#x7B2C;&#x4E09;&#x65B9;&#x5957;&#x4EF6;&#x3001;CSS&#x3001;CSS preprocessor&#x3001;sprite&#x3001;&#x5B57;&#x9AD4;&#x3001;&#x751A;&#x81F3;&#x662F; HTML template (<em>i.e.</em> Angular templates) &#x90FD;&#x80FD;&#x85C9;&#x7531;&#x4E0D;&#x540C;&#x7684; loader &#x7D0D;&#x5165; Webpack &#x7684;&#x7BA1;&#x8F44;&#x4E4B;&#x4E0B;&#xFF0C;&#x56E0;&#x6B64;&#x6240;&#x6709;&#x7684; build &#x5DE5;&#x4F5C;&#x5168;&#x90E8;&#x4EA4;&#x7531; Webpack &#x5373;&#x53EF;</li>
+<li><strong>&#x66F4;&#x660E;&#x78BA;&#x7684;&#x8CC7;&#x6E90;&#x76F8;&#x4F9D;&#x6027;&#xFF08;dependency&#xFF09;&#x548C;&#x9806;&#x5E8F;&#xFF08;ordering&#xFF09;</strong>&#xFF1A;&#x660E;&#x78BA;&#x4F7F;&#x7528; <code>require</code> &#x53BB;&#x5F15;&#x5165;&#x8CC7;&#x6E90;&#xFF0C;&#x80FD;&#x8B93;&#x7A0B;&#x5F0F;&#x78BC;&#x672C;&#x8EAB;&#x96B1;&#x542B;&#x8457;&#x5916;&#x90E8;&#x5957;&#x4EF6;&#x7684; dependency &#x8207; ordering</li>
+</ol>
+<p>&#x60F3;&#x50CF;&#x65E9;&#x671F;&#x7684;&#x7DB2;&#x9801;&#x958B;&#x767C;&#xFF0C;&#x6211;&#x5011;&#x6703;&#x5728; HTML &#x653E;&#x5165;&#x8A31;&#x591A;&#x8AF8;&#x5982; <code>&lt;script src=&#x201C;/jquery.js&#x201D;&gt;&lt;/script&gt;</code> &#x7684;&#x8CC7;&#x6E90;&#x5C0E;&#x5165;&#xFF0C;&#x7136;&#x5F8C;&#x518D;&#x884C;&#x64B0;&#x5BEB;&#x6211;&#x5011;&#x81EA;&#x5DF1;&#x7684;&#x7A0B;&#x5F0F;&#x908F;&#x8F2F;&#x3002;
+&#x9019;&#x6A23;&#x7684;&#x7279;&#x6027;&#x8B93; JS &#x7A0B;&#x5F0F;&#x78BC;&#x7684;&#x76F8;&#x4F9D;&#x6027;&#x96E3;&#x4EE5;&#x88AB;&#x8FFD;&#x8E64;&#x3001;&#x4E5F;&#x5BB9;&#x6613;&#x56E0;&#x641E;&#x932F;&#x9806;&#x5E8F;&#x800C;&#x641E;&#x58DE;&#x7A0B;&#x5F0F;&#x78BC;&#xFF08;&#x4F8B;&#x5982;&#x5C07; <code>bootstrap.js</code> &#x7684;&#x5BA3;&#x544A;&#x653E;&#x5728; <code>jquery</code> &#x4E0A;&#x65B9;&#xFF09;&#xFF1B;&#x76F8;&#x8F03;&#x4E4B;&#x4E0B;&#xFF0C;<code>require</code> &#x672C;&#x8EAB;&#x5C31;&#x80FD;&#x4EE3;&#x8868;&#x4E00;&#x5957;&#x5B8C;&#x6574;&#x7684; module &#x7CFB;&#x7D71;&#xFF0C;&#x8B93;&#x7A0B;&#x5F0F;&#x78BC;&#x53BB;&#x7BA1;&#x7406;&#x81EA;&#x8EAB;&#x7684; dependency issue&#x3002;
+&#x56DE;&#x5230;&#x7B2C;&#x4E00;&#x5929;&#x63D0;&#x5230;&#x7684; Angular.js&#xFF0C;&#x4EE5;&#x524D;&#x7684; JavaScript &#x5957;&#x4EF6;&#x901A;&#x5E38;&#x6703;&#x81EA;&#x884C;&#x5BE6;&#x4F5C;&#x81EA;&#x5DF1;&#x7684; module &#x7CFB;&#x7D71;&#xFF08;&#x53C3;&#x8003; <a href="http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html" target="_blank">module design pattern</a>&#xFF09;&#xFF0C;&#x5C31;&#x662F;&#x57FA;&#x65BC;&#x50B3;&#x7D71;&#x7684; <code>&lt;script&gt;</code> &#x5F15;&#x5165;&#x7279;&#x6027;&#x800C;&#x8A2D;&#x8A08;&#x7684;&#x3002;</p>
+<p>&#x9664;&#x4E86; JavaScript code&#xFF0C;CSS &#x66F4;&#x80FD;&#x53D7;&#x76CA;&#x65BC; Webpack &#x7684;&#x7279;&#x6027;&#x3002;&#x5728; <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity" target="_blank">CSS Specificity</a> &#x6982;&#x5FF5;&#x4E2D;&#xFF0C;&#x7576;&#x78B0;&#x5230; specificity &#x6578;&#x503C;&#x76F8;&#x7B49;&#x7684; selector &#x6642;&#xFF0C;&#x5F8C;&#x8005;&#x6703;&#x8986;&#x5BEB;&#xFF08;override&#xFF09;&#x524D;&#x8005;&#x7684; rule&#xFF0C;&#x56E0;&#x6B64;&#x64B0;&#x5BEB; CSS &#x6642;&#x5F15;&#x5165;&#x5957;&#x4EF6;&#x7684;&#x9806;&#x5E8F;&#x3001;&#x64B0;&#x5BEB;&#x7684;&#x9806;&#x5E8F;&#x5C31;&#x76F8;&#x7576;&#x91CD;&#x8981;&#x3002;
+&#x53E6;&#x5916;&#xFF0C;Webpack &#x4E5F;&#x80FD;&#x76F4;&#x63A5;&#x6574;&#x5408;&#x4E0D;&#x540C;&#x7684; CSS preprocessor &#x6216;&#x52A0;&#x5165; PostCSS &#x8F49;&#x63DB;&#xFF0C;&#x80FD;&#x5920;&#x66F4;&#x65B9;&#x4FBF;&#x7684;&#x64B0;&#x5BEB; CSS&#x3002;</p>
+<p>&#x4E0D;&#x904E;&#xFF0C;&#x53CD;&#x904E;&#x4F86;&#x8AAA; Webpack &#x7684;&#x7279;&#x6027;&#x4E5F;&#x8B93;&#x7A0B;&#x5F0F;&#x78BC;&#x4F7F;&#x7528; <code>require</code> &#x7684;&#x884C;&#x70BA;&#x76F8;&#x4F9D;&#x65BC; Webpack loader&#xFF0C;&#x4F8B;&#x5982;&#x64B0;&#x5BEB; React component &#x6642;&#x6709; require CSS &#x7684;&#x8A71;&#xFF0C;&#x9019;&#x500B; component &#x7684;&#x6A94;&#x6848;&#x4FBF;&#x4E0D;&#x80FD;&#x65BC; server &#x57F7;&#x884C;&#xFF08;<em>i.e.</em> &#x7121;&#x6CD5;&#x7528;&#x65BC; server-side rendering&#xFF09;&#x3002;&#x56E0;&#x6B64;&#x4F7F;&#x7528; Webpack &#x7BA1;&#x7406; CSS &#x7B49;&#x975E; JS &#x8CC7;&#x6E90;&#x6642;&#xFF0C;&#x5EFA;&#x8B70;&#x5C0D;&#x5C08;&#x6848;&#x7D50;&#x69CB;&#x505A;&#x9069;&#x5EA6;&#x8ABF;&#x6574;&#xFF0C;&#x964D;&#x4F4E;&#x7A0B;&#x5F0F;&#x78BC;&#x548C; Webpack &#x4E4B;&#x9593;&#x7684;&#x8026;&#x5408;&#x5EA6;&#x3002;
+&#x6700;&#x7C21;&#x55AE;&#x7684;&#x4F5C;&#x6CD5;&#x662F;&#x9694;&#x96E2;&#x51FA; Webpack &#x5C08;&#x7528;&#x7684; require &#x975E; JS &#x8CC7;&#x6E90;&#x6A94;&#x7528;&#x7684;&#x6558;&#x8FF0;&#xFF0C;&#x4E26;&#x5C07;&#x9019;&#x4E9B;&#x6558;&#x8FF0;&#x653E;&#x5165; Webpack &#x7684; entry file&#x3002;</p>
+<h3 id="webpack-config">Webpack config</h3>
+<p>Webpack &#x5305;&#x542B;&#x4E86; loader&#x3001;plugin&#x3001;entry&#x3001;output &#x7B49;&#x5404;&#x7A2E;&#x53EF;&#x4EE5;&#x8ABF;&#x6574;&#x7684;&#x8A2D;&#x5B9A;&#xFF0C;&#x4EE5;&#x4E0B;&#x4EE5;<a href="https://github.com/teaualune/online-course/blob/fb29cf66f1d20aaaa06da317aabddbbb87a53426/frontend/webpack/config.webpack.js" target="_blank">&#x672C;&#x5C08;&#x6848;&#x4F7F;&#x7528;&#x7684;&#x8A2D;&#x5B9A;</a>&#x505A;&#x4ECB;&#x7D39;&#x3002;</p>
+<h4 id="resolve">resolve</h4>
+<p>Webpack &#x5728; module resolving &#x63A1;&#x7528; Node.js &#x7684;&#x9810;&#x8A2D;&#x898F;&#x5247;&#x9032;&#x884C;&#xFF0C;&#x800C; <code>resolve</code> &#x53EF;&#x4EE5;&#x7528;&#x4F86;&#x8986;&#x5BEB;&#x9019;&#x4E9B;&#x898F;&#x5247;&#xFF1A;</p>
+<pre><code class="lang-javascript">resolve: {
+    root: projectRoot,
+    extensions: [
+        <span class="hljs-string">&apos;&apos;</span>,
+        <span class="hljs-string">&apos;.js&apos;</span>,
+        <span class="hljs-string">&apos;.json&apos;</span>,
+        <span class="hljs-string">&apos;.jsx&apos;</span>
+    ],
+    modulesDirectories: [<span class="hljs-string">&apos;node_modules&apos;</span>]
+},
+</code></pre>
+<p>&#x503C;&#x5F97;&#x4E00;&#x63D0;&#x7684;&#x662F;&#x53EF;&#x4EE5;&#x5728; <code>extensions</code> &#x8A2D;&#x5B9A;&#x526F;&#x6A94;&#x540D;&#x7684;&#x8FA8;&#x8B58;&#x898F;&#x5247;&#xFF0C;&#x4F8B;&#x5982;&#x653E;&#x5165; <code>.jsx</code> &#x5C31;&#x80FD;&#x5728; <code>require</code> &#x6642;&#x7701;&#x7565;&#x6A94;&#x6848;&#x7684; <code>.jsx</code> &#x526F;&#x6A94;&#x540D;&#x3002;
+&#x540C;&#x7406;&#xFF0C;&#x82E5;&#x5C08;&#x6848;&#x7684;&#x6A94;&#x6848;&#x547D;&#x540D;&#x898F;&#x5247;&#x662F;&#x4EE5;&#x53E5;&#x865F;&#x4E32;&#x63A5;&#xFF08;&#x4F8B;&#x5982; <a href="https://github.com/meanjs/mean" target="_blank">MEAN</a> &#x547D;&#x540D; Angular &#x6A94;&#x6848;&#x7528;&#x7684; app.client.controller.js &#x547D;&#x540D;&#x54E5;&#x5247;&#xFF09;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x65BC; <code>extensions</code> &#x653E;&#x5165; <code>.client.controller.js</code> &#x4EE5;&#x7701;&#x7565;&#x9019;&#x4E9B;&#x5F8C;&#x7DB4;&#x547D;&#x540D;&#x3002;</p>
+<p>&#x5728; <code>modulesDirectories</code> &#x53EF;&#x4EE5;&#x6307;&#x5B9A; module &#x8CC7;&#x6599;&#x593E;&#xFF0C;&#x56E0;&#x6B64;&#x82E5;&#x5C08;&#x6848;&#x6709;&#x4F7F;&#x7528; Bower&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x9019;&#x908A;&#x52A0;&#x5165; <code>.bowerrc</code> &#x4E2D;&#x5B9A;&#x7FA9;&#x7684;&#x5957;&#x4EF6;&#x5B89;&#x88DD;&#x8DEF;&#x5F91;&#x3002;</p>
+<h4 id="entry">entry</h4>
+<p>&#x4F5C;&#x70BA; Webpack &#x958B;&#x59CB; compile &#x7684;&#x9032;&#x5165;&#x9EDE;&#xFF0C;<code>entry</code> &#x5176;&#x5BE6;&#x53EF;&#x4EE5;&#x7528; key-value &#x6307;&#x5B9A;&#x591A;&#x7D44;&#x6578;&#x503C;&#xFF08;&#x6B64;&#x5C08;&#x6848;&#x53EA;&#x6709;&#x4E00;&#x500B; <code>app</code> entry&#xFF09;&#xFF0C;&#x9069;&#x5408;&#x4E00;&#x500B;&#x5C08;&#x6848;&#x9700;&#x8981;&#x591A;&#x500B; JS bundle &#x7684;&#x72C0;&#x6CC1;&#xFF08;&#x4F8B;&#x5982;&#x767B;&#x5165;&#x524D;/&#x5F8C;&#x5404;&#x81EA;&#x7684; HTML5 web app bundle&#xFF09;&#x3002;
+&#x50B3;&#x5165;&#x9663;&#x5217;&#x7684;&#x8A71;&#xFF0C;&#x9663;&#x5217;&#x5167;&#x7684;&#x6BCF;&#x500B; module &#x90FD;&#x6703;&#x88AB;&#x8F09;&#x5165;&#xFF0C;&#x4E0D;&#x904E;&#x8F38;&#x51FA;&#x7684;&#x662F;&#x9663;&#x5217;&#x7684;&#x6700;&#x5F8C;&#x4E00;&#x500B;&#x9805;&#x76EE;&#x3002;Webpack hot middleware &#x5229;&#x7528;&#x9019;&#x500B;&#x7279;&#x6027;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x958B;&#x767C;&#x968E;&#x6BB5;&#x52A0;&#x5165; HMR &#x7684;&#x7A0B;&#x5F0F;&#x78BC;&#x8A2D;&#x5B9A;&#x3002;</p>
+<h4 id="output">output</h4>
+<p><code>output</code> &#x53EF;&#x4EE5;&#x6307;&#x5B9A; bundle &#x5F8C;&#x7684;&#x6A94;&#x6848;&#x540D;&#x7A31;&#x3001;&#x8F38;&#x51FA;&#x4F4D;&#x7F6E;&#x7B49;&#x3002;<code>publicPath</code> &#x6703;&#x66B4;&#x9732;&#x7D66; Webpack compile &#x7D50;&#x675F;&#x5F8C;&#x7684;&#x8F38;&#x51FA;&#x7269;&#x4EF6;&#xFF0C;&#x4F9B; build &#x7A0B;&#x5E8F;&#x5F8C;&#x7E8C;&#x4F7F;&#x7528;&#x3002;</p>
+<h4 id="loader">loader</h4>
+<p>Webpack &#x6700;&#x91CD;&#x8981;&#x7684;&#x90E8;&#x4EFD;&#xFF0C;&#x7531; regex <code>test</code> &#x6307;&#x5B9A;&#x4E0D;&#x540C;&#x985E;&#x578B;&#x7684;&#x6A94;&#x6848;&#x8981;&#x4EA4;&#x7531;&#x54EA;&#x500B; loader &#x505A;&#x8F09;&#x5165;&#xFF0C;&#x4E26;&#x4EE5;&#x984D;&#x5916;&#x50B3;&#x5165;&#x7684; <code>query</code> &#x7269;&#x4EF6;&#x505A; loader &#x8A2D;&#x5B9A;&#x3002;
+&#x9019;&#x500B; <code>query</code> &#x7269;&#x4EF6;&#x5BE6;&#x969B;&#x4E0A;&#x6703;&#x4EE5; query string &#x7684;&#x5F62;&#x5F0F;&#x50B3;&#x5165;&#xFF0C;&#x6240;&#x4EE5;&#x4E5F;&#x53EF;&#x4EE5;&#x5728;&#x7A0B;&#x5F0F;&#x78BC;&#x5167;&#x547C;&#x53EB; <code>require</code> &#x7684;&#x6642;&#x5019;&#x5BEB;&#x6B7B;&#x5728; module &#x547D;&#x540D;&#x5167;&#xFF0C;&#x4F8B;&#x5982; <code>require(&#x2018;icon.png?mimetype=image/png&#x2019;)</code> &#x5C0D;&#x61C9;&#x7684; loader &#x8A2D;&#x5B9A;&#x53EF;&#x4EE5;&#x5BEB;&#x6210;&#xFF1A;</p>
+<pre><code class="lang-javascript">{
+    test: <span class="hljs-regexp">/\.png$/</span>,
+    loader: <span class="hljs-string">&apos;url-loader&apos;</span>,
+    query: {
+        mimetype: <span class="hljs-string">&apos;image/png&apos;</span>
+    }
+}
+</code></pre>
+<p>&#x4E0D;&#x904E;&#x7531;&#x65BC;&#x5BEB;&#x6B7B;&#x5728; <code>require</code> &#x7684;&#x65B9;&#x5F0F;&#x5BB9;&#x6613;&#x9020;&#x6210;&#x7BA1;&#x7406;&#x4E0D;&#x4FBF;&#x4EE5;&#x53CA;&#x52A0;&#x91CD;&#x5C0D; Webpack &#x548C;&#x7279;&#x5B9A; loader &#x7684;&#x8026;&#x5408;&#x5EA6;&#xFF0C;&#x5EFA;&#x8B70;&#x659F;&#x914C;&#x4F7F;&#x7528;&#x3002;</p>
+<p>Loader &#x7684;&#x60F3;&#x6CD5;&#x662F;&#x5C07;&#x4F86;&#x6E90;&#x6A94;&#x6848;&#x8F09;&#x5165;&#x5F8C;&#x518D;&#x8F38;&#x51FA;&#x6210; JS &#x7A0B;&#x5F0F;&#x78BC;&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x7528; <code>!</code> &#x4E32;&#x63A5;&#xFF0C;&#x53EA;&#x8981;&#x683C;&#x5F0F;&#x76F8;&#x4EFF;&#x5C31;&#x80FD;&#x9054;&#x5230;&#x591A;&#x6B21;&#x8F49;&#x63DB;&#x7684;&#x6548;&#x679C;&#xFF0C;&#x4F8B;&#x5982; LESS &#x7684;&#x8F49;&#x63DB;&#x5C31;&#x80FD;&#x85C9;&#x7531; <code>css!less</code> &#x7684; loader &#x8A2D;&#x5B9A;&#xFF0C;&#x5C07; LESS &#x8F49;&#x63DB;&#x6210; CSS &#x518D;&#x8F09;&#x5165; JS &#x7A0B;&#x5F0F;&#x78BC;&#x4E2D;&#x3002;</p>
+<p>JS &#x7A0B;&#x5F0F;&#x78BC;&#x672C;&#x8EAB;&#x4F7F;&#x7528; <code>babel-loader</code> &#x4E26;&#x8F09;&#x5165; Babel plugin &#x9032;&#x884C; ES6 &#x7A0B;&#x5F0F;&#x78BC;&#x8F49;&#x63DB;&#x3002;</p>
+<pre><code class="lang-javascript">{
+    test: <span class="hljs-regexp">/\.js(x?)$/</span>,
+    exclude: <span class="hljs-regexp">/node_modules/</span>,
+    loader: <span class="hljs-string">&apos;babel&apos;</span>,
+    query: {
+        presets: [<span class="hljs-string">&apos;react&apos;</span>, <span class="hljs-string">&apos;es2015&apos;</span>, <span class="hljs-string">&apos;stage-0&apos;</span>],
+        plugins: [
+            <span class="hljs-string">&apos;transform-object-rest-spread&apos;</span>,
+            [<span class="hljs-string">&apos;transform-runtime&apos;</span>, {
+                helpers: <span class="hljs-literal">false</span>,
+                polyfill: <span class="hljs-literal">false</span>,
+                regenerator: <span class="hljs-literal">true</span>
+            }]
+        ]
+    }
+},
+</code></pre>
+<p>&#x7531;&#x65BC;&#x5927;&#x90E8;&#x5206;&#x5F9E; <code>node_modules</code> &#x5F15;&#x5165;&#x7684;&#x5957;&#x4EF6;&#x90FD;&#x662F;&#x4EE5; ES5 &#x7684;&#x5F62;&#x5F0F;&#x5B89;&#x88DD;&#x5230;&#x672C;&#x5730;&#x74B0;&#x5883;&#xFF0C;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x5C07; <code>node_modules</code> &#x4F86;&#x7684; module &#x7528; <code>exclude</code> &#x5FFD;&#x7565;&#x6389;&#xFF0C;&#x4EE5;&#x52A0;&#x901F; build &#x904E;&#x7A0B;&#x3002;</p>
+<h4 id="plugin">plugin</h4>
+<p>&#x5728; loader &#x904B;&#x4F5C;&#x7D50;&#x675F;&#x5F8C;&#xFF0C;Webpack &#x6703;&#x5957;&#x7528; plugin &#x7684;&#x529F;&#x80FD;&#x5728;&#x8F38;&#x51FA;&#x7684;&#x7A0B;&#x5F0F;&#x78BC;&#x4E0A;&#x3002;&#x5728;&#x6B64;&#x4ECB;&#x7D39;&#x4E00;&#x4E9B;&#x4F5C;&#x8005;&#x5E38;&#x7528;&#x7684; plugin&#xFF1A;</p>
+<ul>
+<li><code>webpack.optimize.OccurrenceOrderPlugin</code> &#xFF08;&#x5167;&#x5EFA;&#xFF09;&#xFF1A;&#x9019;&#x500B; plugin &#x4E3B;&#x8981;&#x662F;&#x7528;&#x4F86;&#x78BA;&#x4FDD; bundle &#x7684; module &#x6392;&#x5217;&#x9806;&#x5E8F;&#x6703;&#x9075;&#x5FAA;&#x88AB; require &#x7684;&#x9806;&#x5E8F;&#xFF0C;&#x9664;&#x4E86;&#x80FD;&#x78BA;&#x4FDD; CSS &#x7684;&#x5F15;&#x5165;&#x9806;&#x5E8F;&#xFF0C;&#x4E5F;&#x80FD;&#x7DAD;&#x6301; build hash &#x7684;&#x4E00;&#x81F4;&#x6027;&#xFF0C;&#x589E;&#x52A0; HMR &#x6548;&#x80FD; </li>
+<li><code>webpack.DefinePlugin</code> &#xFF08;&#x5167;&#x5EFA;&#xFF09;&#xFF1A;&#x5C07; compile &#x51FA;&#x4F86;&#x7684;&#x7A0B;&#x5F0F;&#x78BC;&#x5167;&#x7684;&#x547D;&#x540D;&#x300C;&#x62BD;&#x63DB;&#x300D;&#x6389;&#xFF0C;&#x9069;&#x5408;&#x7528;&#x4F86;&#x5728; compile &#x6642;&#x671F;&#x6CE8;&#x5165; server &#x7684;&#x74B0;&#x5883;&#x8B8A;&#x6578;</li>
+<li><code>webpack.BannerPlugin</code> &#xFF08;&#x5167;&#x5EFA;&#xFF09;&#xFF1A;&#x5728; bundle &#x51FA;&#x4F86;&#x7684;&#x6A94;&#x6848;&#x9802;&#x7AEF;&#x52A0;&#x4E0A;&#x5305;&#x5728;&#x8A3B;&#x89E3;&#x5167;&#x7684; banner</li>
+<li><code>ExtractTextPlugin</code>&#xFF1A;&#x7528;&#x4F86;&#x5C07; require &#x5230; JS &#x88E1;&#x9762;&#x7684; CSS &#x62BD;&#x53D6;&#x51FA;&#x4F86;&#x8B8A;&#x6210;&#x7368;&#x7ACB;&#x7684; <code>.css</code> &#x6A94;&#x6848;&#xFF0C;&#x9700;&#x8981;&#x642D;&#x914D; loader &#x4F7F;&#x7528;</li>
+<li><code>webpack.optimize.DedupePlugin</code> &#xFF08;&#x5167;&#x5EFA;&#xFF09;&#xFF1A;&#x9032;&#x884C;&#x975C;&#x614B;&#x5206;&#x6790;&#xFF0C;&#x628A;&#x91CD;&#x8907;&#x7684;&#x7A0B;&#x5F0F;&#x78BC;&#x522A;&#x6E1B;&#x6389;&#x91CD;&#x8907;&#x7684;&#x90E8;&#x4EFD;&#xFF08;deduplication&#xFF09;</li>
+<li><code>webpack.optimize.UglifyJsPlugin</code> &#xFF08;&#x5167;&#x5EFA;&#xFF09;&#xFF1A;&#x61C9;&#x8A72;&#x4E0D;&#x6703;&#x6709;&#x4EBA;&#x5728; production &#x74B0;&#x5883;&#x4E0D;&#x7528;&#x9019;&#x500B; plugin &#x5427;&#xFF1F;</li>
+<li><code>webpack.HotModuleReplacementPlugin</code> &#xFF08;&#x5167;&#x5EFA;&#xFF09;&#xFF1A;&#x642D;&#x914D; Webpack hot server &#x4F7F;&#x7528;</li>
+<li><code>webpack.NoErrorsPlugin</code>&#xFF08;&#x5167;&#x5EFA;&#xFF09;&#xFF1A;&#x6E1B;&#x5C11; compile &#x6642;&#x671F;&#x7684; error message &#x8F38;&#x51FA;&#xFF0C;&#x589E;&#x52A0;&#x958B;&#x767C;&#x901F;&#x5EA6;</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="4.html" class="navigation navigation-prev " aria-label="Previous page: (4) 環境變數、ESLint 與 Babel">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="6.html" class="navigation navigation-next " aria-label="Next page: (6) Webpack HMR">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"(5) Tuning Webpack","level":"1.6","depth":1,"next":{"title":"(6) Webpack HMR","level":"1.7","depth":1,"path":"6.md","ref":"6.md","articles":[]},"previous":{"title":"(4) 環境變數、ESLint 與 Babel","level":"1.5","depth":1,"path":"4.md","ref":"4.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"5.md","mtime":"2016-12-04T16:06:27.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-05T16:27:47.603Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

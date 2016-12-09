@@ -1,0 +1,450 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>(9) 開發 Loopback App · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="8.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    簡介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="1.html">
+            
+                <a href="1.html">
+            
+                    
+                    (1) 前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="2.html">
+            
+                <a href="2.html">
+            
+                    
+                    (2) 概覽與需求簡介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="3.html">
+            
+                <a href="3.html">
+            
+                    
+                    (3) 模版架構
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="4.html">
+            
+                <a href="4.html">
+            
+                    
+                    (4) 環境變數、ESLint 與 Babel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="5.html">
+            
+                <a href="5.html">
+            
+                    
+                    (5) Tuning Webpack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="6.html">
+            
+                <a href="6.html">
+            
+                    
+                    (6) Webpack HMR
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="7.html">
+            
+                <a href="7.html">
+            
+                    
+                    (7) 啟動 Frontend Server
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="8.html">
+            
+                <a href="8.html">
+            
+                    
+                    (8) API Server
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.10" data-path="9.html">
+            
+                <a href="9.html">
+            
+                    
+                    (9) 開發 Loopback App
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >(9) 開發 Loopback App</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x5F9E;&#x982D;&#x5EFA;&#x7ACB;&#x4E00;&#x5957;-web-based-&#x670D;&#x52D9;&#x67B6;&#x69CB;-9-&#x958B;&#x767C;-loopback-app">&#x5F9E;&#x982D;&#x5EFA;&#x7ACB;&#x4E00;&#x5957; web-based &#x670D;&#x52D9;&#x67B6;&#x69CB; (9) &#x958B;&#x767C; Loopback App</h1>
+<p>&#x7E7C;&#x6628;&#x5929;&#x4ECB;&#x7D39;&#x4E86; API Server &#x7684;&#x57FA;&#x672C;&#x67B6;&#x69CB;&#x5F8C;&#xFF0C;&#x4ECA;&#x5929;&#x8981;&#x4F86;&#x7C21;&#x55AE;&#x4ECB;&#x7D39; Loopback &#x70BA;&#x4E86;&#x5FEB;&#x901F;&#x958B;&#x767C;&#x800C;&#x63D0;&#x4F9B;&#x7684;&#x8AF8;&#x591A;&#x65B9;&#x4FBF;&#x529F;&#x80FD;&#x3002;</p>
+<h3 id="config">Config</h3>
+<p>Loopback &#x7684;&#x6982;&#x5FF5;&#x8655;&#x8655;&#x5145;&#x6EFF; declarative&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4EE5; JSON &#x6A94;&#x8A2D;&#x5B9A;&#x9700;&#x8981;&#x555F;&#x7528;&#x7684;&#x529F;&#x80FD;&#x548C;&#x5B83;&#x5011;&#x7684;&#x8A2D;&#x5B9A;&#xFF1B;&#x9019;&#x548C;&#x81EA;&#x884C;&#x547C;&#x53EB;&#x7A0B;&#x5F0F;&#x78BC;&#x9032;&#x884C;&#x8A2D;&#x5B9A;&#x7684; imperative &#x76F8;&#x6BD4;&#xFF0C;&#x80FD;&#x5920;&#x66F4;&#x7C21;&#x6613;&#x3001;&#x4E0D;&#x51FA;&#x932F;&#x5730;&#x9032;&#x884C;&#x74B0;&#x5883;&#x8A2D;&#x5B9A;&#xFF0C;&#x4F46;&#x4E5F;&#x8F03;&#x4E0D;&#x5177;&#x5F48;&#x6027;&#x3002;
+&#x9019;&#x4E9B;&#x8A2D;&#x5B9A;&#x6A94;&#x6703;&#x653E;&#x5728; <code>src/config</code> &#x8CC7;&#x6599;&#x593E;&#x5167;&#x3002;
+&#x9664;&#x4E86;&#x4F7F;&#x7528; JSON &#x683C;&#x5F0F;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x8A2D;&#x5B9A;&#x6A94;&#x5747;&#x80FD;&#x4F7F;&#x7528;&#x4E00;&#x822C;&#x7684; JavaScript &#x683C;&#x5F0F;&#xFF0C;&#x5BEB;&#x6210; CommonJS module &#x4E26;&#x65BC; <code>module.exports</code> &#x8F38;&#x51FA;&#x548C; JSON &#x6A94;&#x76F8;&#x540C;&#x7684; JavaScript &#x7269;&#x4EF6;&#x5373;&#x53EF;&#x3002;
+&#x9019;&#x500B;&#x4F5C;&#x6CD5;&#x53EF;&#x4EE5;&#x7528;&#x4F86;&#x548C;&#x74B0;&#x5883;&#x8B8A;&#x6578;&#x6574;&#x5408;&#xFF0C;&#x8B93;&#x6709;&#x9700;&#x8981;&#x7684;&#x8A2D;&#x5B9A;&#x503C;&#x80FD;&#x5920;&#x65BC;&#x4F48;&#x7F72;&#x6642;&#x671F;&#x6C7A;&#x5B9A;&#x3002;
+&#x4EE5;&#x4E0B;&#x4ECB;&#x7D39;&#x4E00;&#x4E9B;&#x5E38;&#x7528;&#x7684;&#x8A2D;&#x5B9A;&#x503C;&#xFF1A;</p>
+<ul>
+<li><code>config.json</code>: Server instance &#x672C;&#x8EAB;&#x7684;&#x76F8;&#x95DC;&#x8A2D;&#x5B9A;<ul>
+<li><code>restApiRoot</code>: &#x8A2D;&#x5B9A; RESTful API &#x7684; root path&#xFF0C;&#x4E00;&#x822C;&#x800C;&#x8A00;&#x4E0D;&#x6703;&#x4F7F;&#x7528; server &#x672C;&#x8EAB;&#x7684;&#x6839;&#x8DEF;&#x5F91; <code>/</code>&#xFF0C;&#x800C;&#x662F;&#x7528;&#x4E00;&#x5169;&#x5C64; path &#x9032;&#x884C;&#x5305;&#x88DD;&#xFF0C;&#x4F8B;&#x5982; <code>/api</code> &#x6216; <code>/api/v1</code>&#x3002;</li>
+<li><code>host</code> &#x548C; <code>port</code> &#x7528;&#x4F86;&#x50B3;&#x7D66; Node.js &#x539F;&#x751F;&#x7684; <code>http</code> module &#x4E2D;&#x7684; <code>server.listen</code> API&#x3002;</li>
+<li><code>remoting.rest.normalizeHttpPath</code> &#x628A; URL path &#x6B63;&#x898F;&#x5316;&#xFF08;underscore &#x8B8A; dash&#x3001;Camel case &#x8B8A; <a href="http://wiki.c2.com/?KebabCase" target="_blank">Kebab case</a>&#xFF09;</li>
+<li><code>remoting.rest.xml</code>: &#x8A2D;&#x5B9A;&#x662F;&#x5426;&#x8981;&#x63A5;&#x53D7; <code>appliaction/xml</code> &#x985E;&#x578B;&#x7684; <code>Content-Type</code></li>
+<li><code>remoting.json</code>: &#x50B3;&#x7D66; <code>bodyParser</code> &#x7528;&#x7684;&#x53C3;&#x6578;&#x8A2D;&#x5B9A;</li>
+<li><code>remoting.urlencoded</code>: &#x50B3;&#x7D66; <code>bodyParser.urlencoded</code> &#x7528;&#x7684;&#x53C3;&#x6578;&#x8A2D;&#x5B9A;</li>
+</ul>
+</li>
+<li><code>datasources.json</code>: Loopback &#x5141;&#x8A31;&#x8A2D;&#x5B9A;&#x8907;&#x6578;&#x7684; ORM/ODM &#x7D81;&#x5B9A;&#xFF0C;&#x652F;&#x63F4;&#x7BC4;&#x570D;&#x5305;&#x62EC; MySQL&#x3001;MongoDB &#x751A;&#x81F3; in-memory &#x7684; redis &#x5747;&#x53EF;&#x3002;&#x4E0D;&#x540C;&#x7684; datasource &#x985E;&#x578B;&#x4EE5; <code>connector</code> &#x505A;&#x5340;&#x5206;&#xFF0C;&#x4E26;&#x9700;&#x8981;&#x5B89;&#x88DD;&#x5C0D;&#x61C9;&#x7684; <code>loopback-connector-*</code> &#x5957;&#x4EF6;&#x3002;</li>
+<li><code>component-config.json</code>: Loopback &#x53EF;&#x4EE5;&#x984D;&#x5916;&#x5B89;&#x88DD;&#x4E0D;&#x540C;&#x7684; plugin&#xFF08;&#x7A31;&#x70BA; Loopback component&#xFF09;&#xFF0C;&#x800C; Loopback &#x6703;&#x7528;&#x9019;&#x500B;&#x6A94;&#x6848;&#x4F86;&#x8A2D;&#x5B9A; component&#xFF0C;&#x4F8B;&#x5982; Swagger UI &#x4F7F;&#x7528;&#x7684; <code>loopback-component-explorer</code>&#x3002;</li>
+<li><code>model-config.json</code>: &#x9019;&#x88E1;&#x9700;&#x8981;&#x8A2D;&#x5B9A;&#x7684;&#x662F;&#x6240;&#x6709;&#x5728; <code>src/common/models</code> &#x5B9A;&#x7FA9;&#x7684; model &#x8CC7;&#x6599;&#x6240;&#x5C0D;&#x61C9;&#x7684; datasource&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x7528; <code>public</code> &#x8A2D;&#x5B9A;&#x662F;&#x5426;&#x8981;&#x70BA;&#x9019;&#x4E9B; model &#x958B;&#x653E; RESTful API&#x3002;</li>
+</ul>
+<h3 id="bootstrapping-scripts">Bootstrapping Scripts</h3>
+<p><code>loopback-boot</code> &#x5957;&#x4EF6;&#x6703;&#x8B80;&#x53D6;&#x4F7F;&#x7528;&#x8005;&#x6307;&#x5B9A;&#x7684;&#x8DEF;&#x5F91;&#xFF0C;&#x5C07;&#x88E1;&#x9762;&#x6240;&#x6709;&#x7684; bootstrapping scripts &#x4F9D;&#x7167;&#x6A94;&#x6848;&#x540D;&#x7A31;&#x9806;&#x5E8F;&#x5168;&#x90E8;&#x57F7;&#x884C;&#x4E00;&#x6B21;&#x3002;&#x5E38;&#x7528;&#x7684; bootstrapping script &#x5305;&#x62EC;&#xFF1A;</p>
+<ol>
+<li>&#x8B80;&#x53D6; roles &#x8A2D;&#x5B9A;</li>
+<li>&#x66FF;&#x9019;&#x500B; API Server &#x5EFA;&#x7ACB;&#x4E00;&#x500B; default &#x7684; admin &#x4F7F;&#x7528;&#x8005;</li>
+<li>&#x9032;&#x884C; database migration</li>
+</ol>
+<h3 id="model-definition">Model Definition</h3>
+<p>Loopback &#x6700;&#x68D2;&#x7684;&#x50F9;&#x503C;&#x5728;&#x65BC;&#x76F4;&#x63A5;&#x5B9A;&#x7FA9;&#x597D; model &#x5C31;&#x80FD;&#x81EA;&#x52D5;&#x751F;&#x6210; RESTful API endpoints &#x548C; database schema&#x3002;
+&#x9019;&#x4E9B; model definition &#x6703;&#x653E;&#x5728; <code>src/common/models</code>&#xFF0C;&#x6BCF;&#x500B; JSON &#x6A94;&#x5C0D;&#x61C9;&#x4E00;&#x500B; model&#x3002;</p>
+<h3 id="roles">Roles</h3>
+<p>Roles &#x662F;&#x7528;&#x65BC; Access Control List (ACL)&#xFF0C;&#x53EF;&#x4EE5;&#x975E;&#x5E38;&#x7CBE;&#x7D30;&#x7684;&#x63A7;&#x5236;&#x4E0D;&#x540C;&#x7684; API &#x7684;&#x5B58;&#x53D6;&#x6B0A;&#x9650;&#x3002;</p>
+<h3 id="remote-methods">Remote Methods</h3>
+<p>&#x9664;&#x4E86; Loopback &#x9810;&#x8A2D;&#x751F;&#x6210;&#x7684; RESTful API&#xFF0C;&#x6211;&#x5011;&#x7576;&#x7136;&#x80FD;&#x81EA;&#x884C;&#x5BA3;&#x544A;&#x5BA2;&#x88FD;&#x5316;&#x7684; API &#x639B;&#x8F09;&#x5230; model &#x4E0A;&#xFF0C;&#x9019;&#x4E9B;&#x5BA2;&#x88FD;&#x5316;&#x7684;&#x90E8;&#x4EFD;&#x7A31;&#x70BA; remote method&#x3002;
+&#x5BA3;&#x544A; remote method &#x9700;&#x8981;&#x5728; <code>src/common/model</code> &#x5BA3;&#x544A; model &#x7684; JSON &#x6A94;&#x6642;&#xFF0C;&#x4E00;&#x8D77;&#x5BA3;&#x544A;&#x4E00;&#x500B; <code>.js</code> &#x7684; JavaScript &#x6A94;&#x6848;&#xFF08;&#x4F8B;&#x5982; <code>Assignment.json</code> &#x548C; <code>Assignment.js</code>&#xFF09;&#x3002;
+Loopback &#x6703;&#x5728; bootstrapping &#x6642;&#x671F;&#x5C07; Model &#x985E;&#x5225;&#x4F5C;&#x70BA;&#x53C3;&#x6578;&#x50B3;&#x5165; JS &#x6A94; export &#x51FA;&#x4F86;&#x7684; function&#xFF0C;&#x8B93;&#x958B;&#x767C;&#x8005;&#x5728; function &#x5167;&#x9032;&#x884C; remote method &#x7684;&#x5BA3;&#x544A;&#x3002;
+&#x901A;&#x5E38;&#x8981;&#x5BA3;&#x544A;&#x4E00;&#x500B; remote method &#x6709;&#x5169;&#x500B;&#x6B65;&#x9A5F;&#xFF1A;</p>
+<p>1) &#x5B9A;&#x7FA9; method &#x672C;&#x9AD4; &#x7684; function&#x3002;
+&#x9019;&#x500B; function &#x7684;&#x8F38;&#x5165;&#x53C3;&#x6578;&#x662F;&#x6A19;&#x6E96;&#x7684; Node.js callback style&#xFF0C;&#x7531;&#x524D;&#x9762;&#x7684;&#x8F38;&#x5165;&#x53C3;&#x6578;&#x548C;&#x6700;&#x5F8C;&#x4E00;&#x500B; <code>callback</code> &#x53C3;&#x6578;&#x69CB;&#x6210;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x56DE;&#x50B3;&#x503C;&#x4E5F;&#x8981;&#x4EE5; <code>callback(err, result)</code> &#x50B3;&#x56DE;&#x3002;
+&#x5728; function &#x5167;&#x90E8;&#x5C31;&#x80FD;&#x900F;&#x904E;&#x5176;&#x4ED6;&#x7684; Model method &#x4F86;&#x5C0D; datasource &#x64CD;&#x4F5C;&#xFF0C;&#x53D6;&#x5F97;&#x60F3;&#x8981;&#x7684;&#x7D50;&#x679C;&#x5F8C;&#x518D;&#x4EE5; <code>callback</code> &#x56DE;&#x50B3;&#x3002;
+Method &#x6709;&#x5206; <code>static method</code> &#x548C; <code>object method</code> &#x5169;&#x7A2E;&#xFF0C;&#x9867;&#x540D;&#x601D;&#x7FA9;&#x5C31;&#x662F;&#x5206;&#x5225;&#x5B9A;&#x7FA9;&#x65BC; Model class &#x548C; Model instance &#x4E0A;&#x7684; method&#xFF0C;&#x5169;&#x8005;&#x53EF;&#x5206;&#x5225;&#x7528; <code>Model.aMethod</code> &#x548C; <code>Model.prototype.aMethod</code> &#x9032;&#x884C;&#x5B9A;&#x7FA9;&#x3002;</p>
+<p>2) &#x547C;&#x53EB; <code>Model.remoteMethod</code> &#x4E26;&#x50B3;&#x5165; remote method &#x7684;&#x8A2D;&#x5B9A;&#x503C;&#x3002;
+&#x5728;&#x8A2D;&#x5B9A;&#x88E1;&#x9762;&#x53EF;&#x4EE5;&#x7D30;&#x90E8;&#x5B9A;&#x7FA9;&#x9019;&#x500B; API &#x7684;&#x7D30;&#x7BC0;&#xFF0C;&#x5305;&#x62EC; API &#x7684; verb&#x3001;URL path&#x3001;&#x6709;&#x54EA;&#x4E9B;&#x8F38;&#x5165;&#x53C3;&#x6578;&#xFF08;&#x8981;&#x50B3;&#x7D66; (1) &#x5B9A;&#x7FA9;&#x7684; function &#x7528;&#x7684;&#xFF09;&#x3001;&#x8F38;&#x5165;&#x53C3;&#x6578;&#x7684;&#x4F86;&#x6E90;&#xFF08;query string&#x3001;URL path argument&#x3001;request header/body &#x7B49;&#xFF09;&#x3001;response body &#x7684;&#x7D50;&#x69CB;&#x5B9A;&#x7FA9;&#x7B49;&#x3002;
+&#x4EE5;&#x4E0B;&#x7528; user model &#x70BA;&#x4F8B;&#xFF0C;&#x5728; user instance &#x4E0A;&#x5BA3;&#x544A;&#x4E00;&#x500B;&#x6539;&#x8B8A;&#x5BC6;&#x78BC;&#x7684; remote method:</p>
+<pre><code class="lang-javascript"><span class="hljs-built_in">module</span>.exports = User =&gt; {
+    User.prototype.changePassword = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">changePassword</span>(<span class="hljs-params">newPassword, callback</span>) </span>{
+        <span class="hljs-keyword">this</span>.updateAttributeAsync(<span class="hljs-string">&apos;password&apos;</span>, newPassword)
+            .then(user =&gt; callback(<span class="hljs-literal">null</span>, { message: <span class="hljs-string">&apos;success&apos;</span> }))
+            .catch(err =&gt; callback(err));
+    };
+    User.remoteMethod(<span class="hljs-string">&apos;changePassword&apos;</span>, {
+        isStatic: <span class="hljs-literal">false</span>,
+        accepts: [
+            { arg: <span class="hljs-string">&apos;newPassword&apos;</span>, type: <span class="hljs-string">&apos;string&apos;</span> }
+        ],
+        returns: {
+            arg: <span class="hljs-string">&apos;info&apos;</span>, type: <span class="hljs-string">&apos;object&apos;</span>, root: <span class="hljs-literal">true</span>
+        },
+        http: { path: <span class="hljs-string">&apos;/password&apos;</span>, verb: <span class="hljs-string">&apos;put&apos;</span> },
+        description: <span class="hljs-string">&apos;Change password of a user&apos;</span>
+    });
+};
+</code></pre>
+<h3 id="&#x7528;-loopback-component-passport-&#x8A2D;&#x5B9A;-local-login">&#x7528; loopback-component-passport &#x8A2D;&#x5B9A; local login</h3>
+<p>Loopback &#x5728; <code>loopback-component-passport</code> &#x5957;&#x4EF6;&#x5BE6;&#x4F5C;&#x4E86;&#x57FA;&#x65BC; access token &#x7684;&#x767B;&#x5165;&#x6D41;&#x7A0B;&#xFF0C;&#x63D0;&#x4F9B; user&#x3001;access token &#x7B49; model &#x5F8C;&#x4FBF;&#x80FD;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { PassportConfigurator } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;loopback-component-passport&apos;</span>;
+
+app.use(loopback.token({
+    model: app.models.accessToken
+}));
+<span class="hljs-keyword">const</span> passportConfigurator = <span class="hljs-keyword">new</span> PassportConfigurator(app);
+passportConfigurator.init(<span class="hljs-literal">true</span>);
+passportConfigurator.setupModels({
+    userModel: app.models.user,
+    userIdentityModel: app.models.userIdentity,
+    userCredentialModel: app.models.userCredential
+});
+passportConfigurator.configureProvider(<span class="hljs-string">&apos;local&apos;</span>, {
+    authScheme: <span class="hljs-string">&apos;local&apos;</span>,
+    provider: <span class="hljs-string">&apos;local&apos;</span>,
+    <span class="hljs-built_in">module</span>: <span class="hljs-string">&apos;passport-local&apos;</span>,
+    usernameField: <span class="hljs-string">&apos;username&apos;</span>,
+    passwordField: <span class="hljs-string">&apos;password&apos;</span>,
+    authPath: <span class="hljs-string">&apos;/auth/local&apos;</span>
+});
+</code></pre>
+<h3 id="&#x6574;&#x5408;-swagger-ui">&#x6574;&#x5408; Swagger UI</h3>
+<p><a href="http://swagger.io/swagger-ui" target="_blank">Swagger UI</a> &#x662F;&#x500B;&#x529F;&#x80FD;&#x5F37;&#x5927;&#x7684; API&#x300C;&#x700F;&#x89BD;&#x5668;&#x300D;&#x3002;&#x9019;&#x500B;&#x4ECB;&#x9762;&#x6703;&#x5C07;&#x6240;&#x6709; RESTful API &#x4EE5; Model &#x70BA;&#x5206;&#x9694;&#x5404;&#x81EA;&#x5217;&#x51FA;&#xFF0C;&#x4E26;&#x689D;&#x5217;&#x6BCF;&#x500B; API &#x7684;&#x7D30;&#x7BC0;&#xFF0C;&#x6700;&#x91CD;&#x8981;&#x7684;&#x662F;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5728;&#x9019;&#x500B; web app &#x4E0A;&#x547C;&#x53EB;&#x9019;&#x4E9B; API &#x9032;&#x884C;&#x624B;&#x52D5;&#x6E2C;&#x8A66;&#x3002;
+Loopback &#x4F7F;&#x7528; <code>loopback-component-explorer</code> &#x5C07; Swagger UI &#x6574;&#x5408;&#x5230; Loopback &#x7CFB;&#x7D71;&#x5167;&#xFF0C;&#x7A31;&#x70BA; Strongloop API Explorer&#x3002;
+&#x5728; <code>component-config.json</code> &#x5BA3;&#x544A;&#x8A2D;&#x5B9A;&#x7D30;&#x7BC0;&#xFF1A;</p>
+<pre><code class="lang-json">{
+    <span class="hljs-string">&quot;loopback-component-explorer&quot;</span>: {
+        <span class="hljs-string">&quot;mountPath&quot;</span>: <span class="hljs-string">&quot;/explorer&quot;</span>,
+        <span class="hljs-string">&quot;apiInfo&quot;</span>: {
+            <span class="hljs-string">&quot;title&quot;</span>: <span class="hljs-string">&quot;API explorer&quot;</span>,
+            <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;API explorer&quot;</span>
+        }
+    }
+}
+</code></pre>
+<p>&#x4EE5;&#x4E0B;&#x662F; Strongloop API Explorer &#x7684;&#x756B;&#x9762;&#xFF1A;</p>
+<p><img src="images/9-swagger.png" alt="Strongloop API Explorer"></p>
+<p>&#x5F9E; API &#x6E2C;&#x8A66;&#x5340;&#x57DF;&#x4E5F;&#x80FD;&#x770B;&#x5230;&#x6839;&#x64DA; remote method &#x7684;&#x8A2D;&#x5B9A;&#x800C;&#x751F;&#x6210;&#x7684; UI&#xFF1A;</p>
+<p><img src="images/9-remote-method.png" alt="remote method"></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="8.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: (8) API Server">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"(9) 開發 Loopback App","level":"1.10","depth":1,"previous":{"title":"(8) API Server","level":"1.9","depth":1,"path":"8.md","ref":"8.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"9.md","mtime":"2016-12-09T07:53:13.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-09T07:53:54.517Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
